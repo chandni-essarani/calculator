@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sum Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .calculator-form {
+      background-color: lightgrey;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .calculator-form label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .calculator-form input[type="number"] {
+      width: 200px;
+      padding: 8px;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+    button {
+      width: 170px;
+      height: 40px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    #addBtn {
+      background-color: blue;
+      color: white;
+    }
+    #addBtn:hover {
+      background-color: royalblue;
+    }
+    #refreshBtn {
+      background-color: yellow;
+      color: black;
+    }
+    #refreshBtn:hover {
+      background-color: white;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-form">
+    <label>Enter the first number:</label>
+    <input type="number" id="num1" />
+
+    <label>Enter the second number:</label>
+    <input type="number" id="num2" />
+
+    <div class="buttons">
+      <button id="addBtn">Add The Two Numbers</button>
+      <button id="refreshBtn">Refresh The Page</button>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById("addBtn").onclick = function () {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+      const resultBox = document.getElementById("result");
+
+      if (!isNaN(num1) && !isNaN(num2)) {
+        const sum = num1 + num2;
+        resultBox.textContent = `Sum: ${sum}`;
+      } else {
+        resultBox.textContent = "Please enter valid numbers.";
+      }
+    };
+
+    document.getElementById("refreshBtn").onclick = function () {
+      window.location.reload();
+    };
+  </script>
+</body>
+</html>
